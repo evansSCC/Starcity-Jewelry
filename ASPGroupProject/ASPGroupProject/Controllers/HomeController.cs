@@ -13,18 +13,30 @@ namespace ASPGroupProject.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Store()
         {
-            ViewBag.Message = "Your application description page.";
-
+            return View();
+        }
+        public ActionResult Shopping_Cart()
+        {
+            return View();
+        }
+        public ActionResult Checkout()
+        {
+            return View();
+        }
+        public ActionResult Contact_Us()
+        {
+            return View();
+        }
+        public ActionResult User_Profile()
+        {
+            return View();
+        }
+        public ActionResult Product_View()
+        {
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
