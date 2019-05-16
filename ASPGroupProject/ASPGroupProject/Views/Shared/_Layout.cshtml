@@ -15,7 +15,7 @@
     </div>
     <div class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-brand">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -25,11 +25,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Store", "Store", "Home")</li>
-                    <li>@Html.ActionLink("Shopping Cart", "Shopping_Cart", "Home")</li>
-                    <li>@Html.ActionLink("Checkout", "Checkout", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact_Us", "Home")</li>
-                    <li>@Html.ActionLink("Profile", "User_Profile", "Home")</li>
+                    <li class="nav-item">@Html.ActionLink("Store", "Store", "Home", new { @class= "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Shopping Cart", "Shopping_Cart", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Checkout", "Checkout", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contact Us", "Contact_Us", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Profile", "User_Profile", "Home", new { @class = "nav-link" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
