@@ -1,7 +1,21 @@
-﻿
+﻿@using ASPGroupProject.Models
+@model ASPGroupProject.Models.Product
 @{
     ViewBag.Title = "Product_View";
 }
 
-<h2>This is the page on which a selected product will be displayed with its details</h2>
+<h1>@Model.ProductName</h1>
+<img src="@Model.ProductImagePath" />
+<br />
+<br />
+<h2>Description</h2>
+<p>@Model.ProductDescription</p>
 
+<h3>Price - @Model.ProductPrice</h3>
+
+@using (Html.BeginForm("add_to_cart", "Product"))
+{
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Buy"/>
+    </div>
+}
