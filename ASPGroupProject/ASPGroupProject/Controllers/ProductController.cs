@@ -14,7 +14,7 @@ namespace ASPGroupProject.Controllers
             return View();
         }
 
-        [Route("Home/Product_View/{product_name}")]
+        [Route("Product/Product_View/{product_name}")]
         public ActionResult Details(int id)
         {
             return View();

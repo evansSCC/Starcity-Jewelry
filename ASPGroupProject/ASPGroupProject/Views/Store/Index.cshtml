@@ -8,18 +8,18 @@
 <h2>This is where all products from the catalogue will be displayed</h2>
 
 
-@foreach (var product in Model)
+@foreach (Product product in Model)
 {
     <div class="card border-primary mb-5">
         <div class="card-header">
-            <h4 class="card-title">@Model.ProductName</h4>
+            <h4 class="card-title">product.ProductName</h4>
         </div>
         <div class="card-body">
-            <img src="@Model.ProductImagePath" />
+            <img src="product.ProductImagePath" />
             <p class="card-text">
-                @Model.ProductDescription
+                product.ProductDescription
                 <br>
-                Price - @Model.ProductPrice
+                Price - product.ProductPrice
             </p>
         </div>
     </div>
