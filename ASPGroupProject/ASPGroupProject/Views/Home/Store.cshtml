@@ -5,9 +5,21 @@
 
 <h2>This is where all products from the catalogue will be displayed</h2>
 
-@* We can use this razor syntax to dynamically build the store items.
+@*Displaying products without sorting - default display
     @foreach(Product in allProducts)
     {
-
+        <div class="card border-primary mb-5">
+            <div class="card-header">
+                <h4 class="card-title">@Product.ProductName</h4>
+            </div>
+            <div class="card-body">
+                @Product.ProductImage
+                <p class="card-text">
+                    @Product.ProductDescription
+                    <br>
+                    @Product.ProductPrice
+                </p>
+            </div>
+        </div>
     }
 *@
