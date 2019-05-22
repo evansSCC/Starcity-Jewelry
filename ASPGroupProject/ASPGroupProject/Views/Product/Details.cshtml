@@ -4,14 +4,14 @@
     ViewBag.Title = "Product_View";
 }
 
-<h1>@Model.ProductName</h1>
-<img src="@Model.ProductImagePath" />
+<h1>@Model.Name</h1>
+<img src="@Model.Image" />
 <br />
 <br />
 <h2>Description</h2>
-<p>@Model.ProductDescription</p>
+<h3>@Model.Description</h3>
 
-<h3>Price - @Model.ProductPrice</h3>
+<h3>Price - @Model.Price</h3>
 
 @using (Html.BeginForm("add_to_cart", "Product"))
 {

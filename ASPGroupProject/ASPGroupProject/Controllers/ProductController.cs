@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ASPGroupProject.Models;
 using System.Web.Mvc;
 
 namespace ASPGroupProject.Controllers
@@ -9,15 +6,18 @@ namespace ASPGroupProject.Controllers
     public class ProductController : Controller
     {
         // GET: Product
+        
         public ActionResult Index()
         {
             return View();
         }
 
-        [Route("Product/Product_View/{product_name}")]
+        [Route("Product/Details/{id}")]
         public ActionResult Details(int id)
         {
-            return View();
+            Product p = ProductDA.GetProductById(id);
+            
+            return View(p);
         }
 
         // GET: Product/Create
