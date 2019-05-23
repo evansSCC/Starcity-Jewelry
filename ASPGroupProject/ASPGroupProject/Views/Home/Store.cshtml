@@ -1,25 +1,24 @@
-﻿
+﻿@model IEnumerable<ASPGroupProject.Models.Product>
+
 @{
     ViewBag.Title = "Store";
 }
 
 <h2>This is where all products from the catalogue will be displayed</h2>
 
-@*Displaying products without sorting - default display
-    @foreach(Product in allProducts)
+    @foreach(var product in Model)
     {
         <div class="card border-primary mb-5">
             <div class="card-header">
-                <h4 class="card-title">@Product.ProductName</h4>
+                <h4 class="card-title">@Html.DisplayFor(modelItem=>product.ProductName)</h4>
             </div>
             <div class="card-body">
-                @Product.ProductImage
+                <img src=".@Html.DisplayFor(modelItem=>product.ProductImagePath)" />
                 <p class="card-text">
-                    @Product.ProductDescription
+                    @Html.DisplayFor(modelItem=>product.ProductDescription)
                     <br>
-                    @Product.ProductPrice
+                    @Html.DisplayFor(modelItem=>product.ProductPrice)
                 </p>
             </div>
         </div>
     }
-*@
