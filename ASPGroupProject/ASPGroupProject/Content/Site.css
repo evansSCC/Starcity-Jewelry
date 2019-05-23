@@ -21,3 +21,26 @@ select,
 textarea {
     max-width: 280px;
 }
+
+img {
+    height: 20%;
+    height: 20%;
+}
+
+.product-thumbnail{
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.jumbotron {
+    height: 400px;
+    background-image: url('../Images/header.jpg');
+    background-clip:border-box;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+.jumbotron h2 {
+    font-size: 72pt;
+    /*TODO update to more attractive font*/
+}
