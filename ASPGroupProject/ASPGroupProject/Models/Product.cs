@@ -7,20 +7,26 @@ namespace ASPGroupProject.Models
 {
     public class Product
     {
-        public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
-        public string ProductCategory { get; set; }
-        public decimal ProductPrice { get; set; }
-        public string ProductImagePath { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Category { get; set; }
+        public decimal Price { get; set; }
+        public string Image { get; set; }
+        public int Qty { get; set; }
+        public int Id { get; set; }
 
-        public Product(string name, string description, string category, decimal price, string imagePath)
+        public Product(string name, string description, string category, decimal price, string imagePath, int qty)
         {
-            ProductName = name;
-            ProductDescription = description;
-            ProductCategory = category;
-            ProductPrice = price;
-            ProductImagePath = imagePath;
+            Name = name;
+            Description = description;
+            Category = category;
+            Price = price;
+            Image = imagePath;
+            Qty = qty;
         }
 
+        public Product()
+        {
+        }
     }
 }
