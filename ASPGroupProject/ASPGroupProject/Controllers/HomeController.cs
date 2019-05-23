@@ -15,7 +15,6 @@ namespace ASPGroupProject.Controllers
 
         public ActionResult Store()
         {
-
             return View();
         }
         public ActionResult Shopping_Cart()

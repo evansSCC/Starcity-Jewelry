@@ -8,18 +8,18 @@
 <h2>This is where all products from the catalogue will be displayed</h2>
 
 
-@foreach (var product in Model)
+@foreach (var item in Model)
 {
     <div class="card border-primary mb-5">
         <div class="card-header">
-            <h4 class="card-title">@Model.ProductName</h4>
+            <h4 class="card-title">@Html.DisplayFor(modelItem=>item.Name)</h4>
         </div>
         <div class="card-body">
-            <img src="@Model.ProductImagePath" />
+            <img src="@Html.DisplayFor(modelItem=>item.Image)" />
             <p class="card-text">
-                @Model.ProductDescription
+                @Html.DisplayFor(modelItem=>item.Description)
                 <br>
-                Price - @Model.ProductPrice
+                Price - @Html.DisplayFor(modelItem=>item.Price)
             </p>
         </div>
     </div>
