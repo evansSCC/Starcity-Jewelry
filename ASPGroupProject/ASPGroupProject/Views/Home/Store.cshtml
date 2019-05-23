@@ -1,25 +1,24 @@
 ﻿@using ASPGroupProject.Models
-@model List<ASPGroupProject.Models.Product>
 
-@{
-    ViewBag.Title = "Store";
+@{ 
+    var StuffList = ViewBag.message;
 }
 
 <h2>This is where all products from the catalogue will be displayed</h2>
 
 
-@foreach (var item in Model)
+@foreach (var product in StuffList)
 {
     <div class="card border-primary mb-5">
         <div class="card-header">
-            <h4 class="card-title">@Html.DisplayFor(modelItem=>item.Name)</h4>
+            <h4 class="card-title">@product.Name</h4>
         </div>
         <div class="card-body">
-            <img src="@Html.DisplayFor(modelItem=>item.Image)" />
+            <img src="@product.Image"/>
             <p class="card-text">
-                @Html.DisplayFor(modelItem=>item.Description)
+                @product.Description
                 <br>
-                Price - @Html.DisplayFor(modelItem=>item.Price)
+                Price - @product.Price
             </p>
         </div>
     </div>
