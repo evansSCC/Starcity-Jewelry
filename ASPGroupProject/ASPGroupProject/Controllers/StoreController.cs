@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASPGroupProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +9,14 @@ namespace ASPGroupProject.Controllers
 {
     public class StoreController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Store
         [Route("Store/Index")]
         public ActionResult Index()
         {
-            //Generate a list of products
-            return View();
+            List<Product> products = ProductDA.GetAllProducts();
+            return View(products);
         }
 
         public ActionResult Checkout()

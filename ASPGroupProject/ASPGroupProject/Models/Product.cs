@@ -10,12 +10,12 @@ namespace ASPGroupProject.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public string Image { get; set; }
         public int Qty { get; set; }
         public int Id { get; set; }
 
-        public Product(string name, string description, string category, decimal price, string imagePath, int qty)
+        public Product(string name, string description, string category, double price, string imagePath, int qty)
         {
             Name = name;
             Description = description;
