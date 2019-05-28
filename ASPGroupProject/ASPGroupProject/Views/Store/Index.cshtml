@@ -10,13 +10,13 @@
 
 @foreach (Product product in Model)
 {
-    <div>
+    <div class="card border-primary mb-5">
         <div class="card-header">
             <h4 class="card-title">product.ProductName</h4>
         </div>
-        <div>
+        <div class="card-body">
             <img src="product.ProductImagePath" />
-            <p>
+            <p class="card-text">
                 product.ProductDescription
                 <br>
                 Price - product.ProductPrice

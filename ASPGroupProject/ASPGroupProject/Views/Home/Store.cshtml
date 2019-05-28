@@ -6,17 +6,15 @@
 
 <h2>This is where all products from the catalogue will be displayed</h2>
 
-<div class="card-columns">
+
 @foreach (var product in StuffList)
 {
-    
-    <div class="card">
-        <img class="card-img-top product-thumbnail" src="@product.Image" />
+    <div class="card border-primary mb-5">
         <div class="card-header">
             <h4 class="card-title">@product.Name</h4>
         </div>
-
         <div class="card-body">
+            <img src="@product.Image"/>
             <p class="card-text">
                 @product.Description
                 <br>
@@ -25,4 +23,3 @@
         </div>
     </div>
 }
-</div>
