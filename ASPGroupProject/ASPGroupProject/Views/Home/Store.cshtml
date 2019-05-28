@@ -1,6 +1,6 @@
 ﻿@using ASPGroupProject.Models
 
-@{ 
+@{
     var StuffList = ViewBag.message;
 }
 
@@ -9,12 +9,12 @@
 
 @foreach (var product in StuffList)
 {
-    <div class="card border-primary mb-5">
+    <div class="card">
+        <img class="card-img-top product-thumbnail" src="..@(product.Image)_Main.jpg" />
         <div class="card-header">
             <h4 class="card-title">@product.Name</h4>
         </div>
         <div class="card-body">
-            <img src="@product.Image"/>
             <p class="card-text">
                 @product.Description
                 <br>
