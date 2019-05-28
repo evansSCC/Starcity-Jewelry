@@ -28,9 +28,10 @@ img {
 }
 
 .product-thumbnail {
-    max-height: 400px;
-    max-width: 400px;
+    max-height: 350px;
+    max-width: 350px;
 }
+
 
 .jumbotron {
     height: 400px;
@@ -38,6 +39,7 @@ img {
     background-clip: border-box;
     background-repeat: no-repeat;
     color: #ffffff;
+    background-size: cover;
 }
 
     .jumbotron h2 {

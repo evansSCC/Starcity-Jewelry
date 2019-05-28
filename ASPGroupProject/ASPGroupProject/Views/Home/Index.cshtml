@@ -1,6 +1,11 @@
-﻿@{
+﻿@using ASPGroupProject.Models
+
+@{
     ViewBag.Title = "Home Page";
+    var StuffList = ViewBag.message;
 }
+
+
 
 <div class="row">
     <div class="col-md-6">
@@ -14,69 +19,14 @@
             To find out more information about our company please visit the contact us page.
         </p>
     </div>
-    <div class="col-md-3">
+    <div class="card-columns">
+        @foreach (var product in StuffList)
+        {
         <div class="card border-primary mb-5">
-            <div class="card-header">
-                <h4 class="card-title">Sample product card</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Image and details here?<br />
-                    Details, lorem ipsum.
-                </p>
-            </div>
+            <img class="card-img-top thumbnail-small" src="..@(product.Image)_Main.jpg" />
+            <div class="card-header">@product.Name</div>
+        </div>
+        }
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="card border-primary mb-5">
-            <div class="card-header">
-                <h4 class="card-title">Sample product card</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Image and details here?<br />
-                    Details, lorem ipsum.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-primary mb-5">
-            <div class="card-header">
-                <h4 class="card-title">Sample product card</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Image and details here?<br />
-                    Details, lorem ipsum.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-primary mb-5">
-            <div class="card-header">
-                <h4 class="card-title">Sample product card</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Image and details here?<br />
-                    Details, lorem ipsum.
-                </p>
-            </div>
-        </div>
-    </div>    
-    <div class="col-md-3">
-        <div class="card border-primary mb-5">
-            <div class="card-header">
-                <h4 class="card-title">Sample product card</h4>
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Image and details here?<br />
-                    Details, lorem ipsum.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+   

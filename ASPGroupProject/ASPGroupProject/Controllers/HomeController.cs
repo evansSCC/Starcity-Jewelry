@@ -11,6 +11,16 @@ namespace ASPGroupProject.Controllers
     {
         public ActionResult Index()
         {
+            List<Product> listOfProducts = ProductDA.GetAllProducts();
+            List<Product> shortList = new List<Product>();
+
+            for (int i = 0; i <=2; i++)
+            {
+                shortList.Add(listOfProducts[i]);
+            }
+
+            ViewBag.Message = shortList;
+            
             return View();
         }
 
