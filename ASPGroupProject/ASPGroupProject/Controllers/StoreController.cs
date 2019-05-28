@@ -9,6 +9,8 @@ namespace ASPGroupProject.Controllers
 {
     public class StoreController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Store
         [Route("Store/Index")]
         public ActionResult Index()
