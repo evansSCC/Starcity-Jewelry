@@ -47,9 +47,10 @@ namespace ASPGroupProject.Controllers
         {
             return View();
         }
-        public ActionResult Product_View()
+        public ActionResult Product_View(int id)
         {
-            return View();
+            Product p = ProductDA.GetProductById(id);
+            return View(p);
         }
 
     }
