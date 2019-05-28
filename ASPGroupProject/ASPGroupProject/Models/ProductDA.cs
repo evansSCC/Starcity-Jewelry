@@ -30,8 +30,27 @@ namespace ASPGroupProject.Models
             {
                 p = new Product(reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
             }
-
+            reader.Close();
             return p;
+        }
+
+        public static List<Product> GetAllProducts()
+        {
+            List<Product> products = new List<Product>();
+
+            string statement = "select * from product";
+            SqlConnection con = new SqlConnection(GetConnectionString());
+            SqlCommand query = new SqlCommand(statement, con);
+            con.Open();
+            SqlDataReader reader = query.ExecuteReader(CommandBehavior.CloseConnection);
+            while(reader.Read())
+            {
+                Product p = new Product(reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
+                products.Add(p);
+            }
+            reader.Close();
+
+            return products;
         }
     }
 }
