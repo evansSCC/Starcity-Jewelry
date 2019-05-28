@@ -20,6 +20,11 @@ namespace ASPGroupProject.Controllers
             return View(p);
         }
 
+        public ActionResult add_to_cart()
+        {
+            return View();
+        }
+
         // GET: Product/Create
         public ActionResult Create()
         {

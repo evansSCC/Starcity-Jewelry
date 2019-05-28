@@ -235,7 +235,7 @@
     <Content Include="Images\Products\E135\E135_Main.jpg" />
     <Content Include="Images\Products\N106\N106_Main.jpg" />
     <Content Include="Images\Products\N116\N116-Alt.jpg" />
-    <Content Include="Images\Products\N116\N116_main.jpg" />
+    <Content Include="Images\Products\N116\N116_Main.jpg" />
     <Content Include="Images\Products\N147\N147_Alt.jpg" />
     <Content Include="Images\Products\N147\N147_Main.jpg" />
     <Content Include="Images\Products\N204\N204_Alt.jpg" />
@@ -294,8 +294,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Store.cshtml" />
-    <Content Include="Views\Home\Product_View.cshtml" />
     <Content Include="Views\Home\Shopping_Cart.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Home\Contact_Us.cshtml" />

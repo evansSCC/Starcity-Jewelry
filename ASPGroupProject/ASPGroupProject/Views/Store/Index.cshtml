@@ -5,22 +5,41 @@
     ViewBag.Title = "Store";
 }
 
-<h2>This is where all products from the catalogue will be displayed</h2>
+<h2>Starcity Jewelry Products</h2>
 
 
-@foreach (Product product in Model)
+@foreach (Product product in @Model)
 {
-    <div class="card border-primary mb-5">
-        <div class="card-header">
-            <h4 class="card-title">product.ProductName</h4>
-        </div>
+    <div style="text-align: center;" class="card mb-3">
+        <h3 class="card-header">@product.Name</h3>
         <div class="card-body">
-            <img src="product.ProductImagePath" />
-            <p class="card-text">
-                product.ProductDescription
-                <br>
-                Price - product.ProductPrice
-            </p>
+            <h5 class="card-title">@product.Category</h5>
+            <h6 class="card-subtitle text-muted">Price - @product.Price</h6>
+        </div>
+        <img style="height: 504px ; width: 378px; display: block; margin: auto;" src="..@(product.Image)_Main.jpg" alt="Card image">
+        <div class="card-body">
+            <p class="card-text">@product.Description.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
         </div>
     </div>
 }
