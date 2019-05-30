@@ -4,24 +4,24 @@
     var StuffList = ViewBag.message;
 }
 
-<h2>This is where all products from the catalogue will be displayed</h2>
 
-<div class="card-columns">
-    @foreach (var product in StuffList)
-    {
-        <div class="card">
-            <img class="card-img-top product-thumbnail" src="..@(product.Image)_Main.jpg" />
-            <div class="card-header">
-                <h4 class="card-title">@product.Name</h4>
+<div class="card-deck">
+        @foreach (var product in StuffList)
+        {
+            <div class="card mb-3" style="min-width: 200px; max-width: 250px; ">
+                <div class="card-header">
+                    <h4 class="card-title">@product.Name</h4>
+                </div>
+                <img class="card-img-top" src="..@(product.Image)_Main.jpg"  style="max-height: 200px;"/>
+                
+                <div class="card-body">
+                    <p class="card-text">
+                        @product.Description
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <p> @product.Price.ToString("c")</p>
+                </div>
             </div>
-            <div class="card-body">
-                <p class="card-text">
-                    @product.Description
-                    <br />
-                    <br />
-                    @product.Price.ToString("c")
-                </p>
-            </div>
-        </div>
-    }
-</div>
+        }
+    </div>
