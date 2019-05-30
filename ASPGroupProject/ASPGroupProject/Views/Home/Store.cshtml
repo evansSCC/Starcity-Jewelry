@@ -16,7 +16,7 @@
                 <option value="@cat">@cat</option>
             }
         </select>
-        <input type="submit" style="margin-left: 10px;" class="btn btn-primary" value="Sort"/>
+        <input type="submit" style="margin-left: 10px;" class="btn btn-primary" value="Sort" />
     }
 </div>
 <br /><br />
@@ -31,19 +31,26 @@
             </div>
             <div class="card-body">
                 <p class="card-text">
-                    @product.Description
+                    <h5>Description:</h5> @product.Description
                     <br />
                     <br />
-                    @product.Price.ToString("c")
+                    <h5>Price:</h5> @product.Price.ToString("c")
                 </p>
             </div>
             @using (Html.BeginForm("add_to_cart", "Home"))
             {
-            <div style="text-align: center;" class="form-group">
-                <input type="hidden" name="id" value="@product.Id" />
-                <input type="submit" class="btn btn-primary" value="Buy" />
-            </div>
+                <div style="text-align: center;" class="form-group">
+                    <input type="hidden" name="id" value="@product.Id" />
+                    <input type="submit" class="btn btn-primary" value="Buy" />
+                </div>
+            }
+            @using (Html.BeginForm("Product_View", "Home"))
+            {
+                <div style="text-align: center;" class="form-group">
+                    <input type="hidden" name="id" value="@product.Id" />
+                    <input type="submit" class="btn btn-primary" value="View" />
+                </div>
             }
         </div>
-        }
+    }
 </div>
