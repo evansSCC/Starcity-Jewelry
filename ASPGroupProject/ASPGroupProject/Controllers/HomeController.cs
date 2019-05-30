@@ -81,9 +81,10 @@ namespace ASPGroupProject.Controllers
 
         public ActionResult sort_store(string category)
         {
+            List<Product> listOfAllProducts = ProductDA.GetAllProducts();
             List<Product> listOfProducts = ProductDA.GetAllProducts(category);
             List<string> Categories = new List<string>();
-            foreach (Product p in listOfProducts)
+            foreach (Product p in listOfAllProducts)
             {
                 if (!Categories.Contains(p.Category))
                 {
