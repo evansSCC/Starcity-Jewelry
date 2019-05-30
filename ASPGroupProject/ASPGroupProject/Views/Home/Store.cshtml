@@ -1,10 +1,25 @@
 ﻿@using ASPGroupProject.Models
-
 @{
     var StuffList = ViewBag.message;
 }
 
-<h2>This is where all products from the catalogue will be displayed</h2>
+
+
+<div id="sort">
+    <h3>Filter Categories</h3>
+    @using (Html.BeginForm("sort_store", "Home"))
+    {
+        <select style="width: 200px;" name="category">
+            <option value="none"></option>
+            @foreach (string cat in ViewBag.Categories)
+            {
+                <option value="@cat">@cat</option>
+            }
+        </select>
+        <input type="submit" style="margin-left: 10px;" class="btn btn-primary" value="Sort"/>
+    }
+</div>
+<br /><br />
 
 <div class="card-columns">
     @foreach (var product in StuffList)
@@ -22,6 +37,13 @@
                     @product.Price.ToString("c")
                 </p>
             </div>
+            @using (Html.BeginForm("add_to_cart", "Home"))
+            {
+            <div style="text-align: center;" class="form-group">
+                <input type="hidden" name="id" value="@product.Id" />
+                <input type="submit" class="btn btn-primary" value="Buy" />
+            </div>
+            }
         </div>
-    }
+        }
 </div>

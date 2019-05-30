@@ -303,9 +303,6 @@
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Home\Contact_Us.cshtml" />
     <Content Include="Views\Home\User_Profile.cshtml" />
-    <Content Include="Views\Store\Index.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Store\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
