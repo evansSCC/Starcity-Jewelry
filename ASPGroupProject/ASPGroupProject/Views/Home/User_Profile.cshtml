@@ -1,7 +1,22 @@
 ﻿
 @{
     ViewBag.Title = "User_Profile";
+    var user = ViewBag.message;
 }
-
-<h2>This is the profile page for signed-in users</h2>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 align="left">Profile</h1>
+<br />
+<h2 class="title" style="margin: 0 auto !important;">Personal Info:</h2>
+<div class="card" style="margin: 0 auto; padding: 20px; text-align: left; width: 300px !important">
+    <h3 align="center" style="text-align: center;">Name: @user.CustomerName</h3>
+    <h3 align="center" style="text-align: center;">Phone: @user.PhoneNumber</h3>
+    <h3 align="center" style="text-align: center;">Email: @user.EmailAddress</h3>
+    <h3 align="center" style="text-align: center;">Password: @user.CustomerPassword</h3>
+</div>
+<br/>
+<h2 class="title" style="margin: 0 auto !important;">Shipping Info:</h2>
+<div class="card" style="margin: 0 auto; padding: 20px; text-align: left; width: 300px !important">
+    <h3 align="center" style="text-align: center;">@user.Address</h3>
+    <h3 align="center" style="text-align: center;">@user.City, @user.State @user.ZIP</h3>
+    <h3 align="center" style="text-align: center;">@user.Country</h3>
+</div>

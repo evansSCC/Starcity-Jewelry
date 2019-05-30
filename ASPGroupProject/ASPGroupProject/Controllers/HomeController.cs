@@ -45,6 +45,9 @@ namespace ASPGroupProject.Controllers
         }
         public ActionResult User_Profile()
         {
+            User u = UserDA.GetUserById(4);
+            ViewBag.Message = u;
+
             return View();
         }
         public ActionResult Product_View()
