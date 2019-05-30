@@ -5,7 +5,7 @@
 }
 
 <h1>@Model.Name</h1>
-<img src="@Model.Image" />
+<img class="card-img-top product-thumbnail" src="@(Model.Image)_Main.jpg" />
 <br />
 <br />
 <h2>Description</h2>
@@ -13,9 +13,10 @@
 
 <h3>Price - @Model.Price</h3>
 
-@using (Html.BeginForm("add_to_cart", "Product"))
+@using (Html.BeginForm("add_to_cart", "Home"))
 {
     <div class="form-group">
+        <input type="hidden" name="id" value="@Model.Id" />
         <input type="submit" class="btn btn-primary" value="Buy"/>
     </div>
 }
