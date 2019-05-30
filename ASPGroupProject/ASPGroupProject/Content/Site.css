@@ -44,4 +44,10 @@ img {
     .jumbotron h2 {
         font-size: 72pt;
         /*TODO update to more attractive font*/
-    } 
+    }
+
+.product-buttons {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}

@@ -4,24 +4,55 @@
     var StuffList = ViewBag.message;
 }
 
+<div id="sort">
+    <h3>Filter Categories</h3>
+    @using (Html.BeginForm("sort_store", "Home"))
+    {
+        <select style="width: 200px;" name="category">
+            <option value="none"></option>
+            @foreach (string cat in ViewBag.Categories)
+            {
+                <option value="@cat">@cat</option>
+            }
+        </select>
+        <input type="submit" style="margin-left: 10px;" class="btn btn-primary" value="Sort" />
+    }
+</div>
+<br /><br />
 
 <div class="card-deck">
-        @foreach (var product in StuffList)
-        {
-            <div class="card mb-3" style="min-width: 200px; max-width: 250px; ">
-                <div class="card-header">
-                    <h4 class="card-title">@product.Name</h4>
+    @foreach (var product in StuffList)
+    {
+    <div class="card mb-3" style="min-width: 200px; max-width: 250px; ">
+        <div class="card-header">
+            <h4 class="card-title">@product.Name</h4>
+        </div>
+        <img class="card-img-top" src="..@(product.Image)_Main.jpg" style="max-height: 200px;" />
+
+        <div class="card-body">
+            <p class="card-text">
+                @product.Description
+            </p>
+        </div>
+        <div class="card-footer">
+            <p style="text-align: center;"> @product.Price.ToString("c")</p>
+            <div style="display: inline;">
+                @using (Html.BeginForm("add_to_cart", "Home"))
+            {
+                <div style="text-align: center; float: left;" class="form-group product-buttons">
+                    <input type="hidden" name="id" value="@product.Id" />
+                    <input type="submit" class="btn btn-primary" value="Buy" />
                 </div>
-                <img class="card-img-top" src="..@(product.Image)_Main.jpg"  style="max-height: 200px;"/>
-                
-                <div class="card-body">
-                    <p class="card-text">
-                        @product.Description
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <p> @product.Price.ToString("c")</p>
-                </div>
-            </div>
         }
+                @using (Html.BeginForm("Product_View", "Home"))
+            {
+                <div style="text-align: center; float: right;" class="form-group product-buttons">
+                    <input type="hidden" name="id" value="@product.Id" />
+                    <input type="submit" class="btn btn-primary" value="View" />
+                </div>
+        }
+            </div>
+        </div>
     </div>
+    }
+</div>
