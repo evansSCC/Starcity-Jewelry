@@ -9,7 +9,7 @@
     <h3>Filter Categories</h3>
     @using (Html.BeginForm("sort_store", "Home"))
     {
-        <select style="width: 200px;" name="sort">
+        <select style="width: 200px;" name="category">
             <option value="none"></option>
             @foreach (string cat in ViewBag.Categories)
             {

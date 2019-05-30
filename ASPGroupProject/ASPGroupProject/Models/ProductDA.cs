@@ -52,5 +52,26 @@ namespace ASPGroupProject.Models
 
             return products;
         }
+
+        public static List<Product> GetAllProducts(string category)
+        {
+            List<Product> products = new List<Product>();
+
+            string statement = "select * from product where category = @category";
+            SqlConnection con = new SqlConnection(GetConnectionString());
+            SqlCommand query = new SqlCommand(statement, con);
+            query.Parameters.AddWithValue("@category", category);
+            con.Open();
+            SqlDataReader reader = query.ExecuteReader(CommandBehavior.CloseConnection);
+            query.Parameters.Clear();
+            while (reader.Read())
+            {
+                Product p = new Product(Convert.ToInt16(reader["id"]), reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
+                products.Add(p);
+            }
+            reader.Close();
+
+            return products;
+        }
     }
 }

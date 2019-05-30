@@ -76,5 +76,21 @@ namespace ASPGroupProject.Controllers
             Response.Redirect("Store");
         }
 
+        public ActionResult sort_store(string category)
+        {
+            List<Product> listOfProducts = ProductDA.GetAllProducts(category);
+            List<string> Categories = new List<string>();
+            foreach (Product p in listOfProducts)
+            {
+                if (!Categories.Contains(p.Category))
+                {
+                    Categories.Add(p.Category);
+                }
+            }
+            ViewBag.Categories = Categories;
+            ViewBag.Message = listOfProducts;
+            return View("Store");
+        }
+
     }
 }
