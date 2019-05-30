@@ -27,7 +27,15 @@ namespace ASPGroupProject.Controllers
         public ActionResult Store()
         {
             List<Product> listOfProducts = ProductDA.GetAllProducts();
-
+            List<string> Categories = new List<string>();
+            foreach(Product p in listOfProducts)
+            {
+                if (!Categories.Contains(p.Category))
+                {
+                    Categories.Add(p.Category);
+                }
+            }
+            ViewBag.Categories = Categories;
             ViewBag.Message = listOfProducts;
             return View();
         }
@@ -54,7 +62,7 @@ namespace ASPGroupProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult add_to_cart(int id)
+        public void add_to_cart(int id)
         {
             Product p = ProductDA.GetProductById(id);
             if(Session["Cart"] == null)
@@ -65,7 +73,7 @@ namespace ASPGroupProject.Controllers
             List<Product> cart = (List<Product>)Session["Cart"];
             cart.Add(p);
             Session["Cart"] = cart;
-            return View();
+            Response.Redirect("Store");
         }
 
     }
