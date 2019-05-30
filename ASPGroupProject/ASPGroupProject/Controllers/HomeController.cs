@@ -53,5 +53,20 @@ namespace ASPGroupProject.Controllers
             return View(p);
         }
 
+        [HttpPost]
+        public ActionResult add_to_cart(int id)
+        {
+            Product p = ProductDA.GetProductById(id);
+            if(Session["Cart"] == null)
+            {
+                Session["Cart"] = new List<Product>();
+            }
+
+            List<Product> cart = (List<Product>)Session["Cart"];
+            cart.Add(p);
+            Session["Cart"] = cart;
+            return View();
+        }
+
     }
 }

@@ -28,7 +28,7 @@ namespace ASPGroupProject.Models
             query.Parameters.Clear();
             while (reader.Read())
             {
-                p = new Product(reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
+                p = new Product(Convert.ToInt16(reader["id"]), reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
             }
             reader.Close();
             return p;
@@ -45,7 +45,7 @@ namespace ASPGroupProject.Models
             SqlDataReader reader = query.ExecuteReader(CommandBehavior.CloseConnection);
             while(reader.Read())
             {
-                Product p = new Product(reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
+                Product p = new Product(Convert.ToInt16(reader["id"]), reader["name"].ToString(), reader["description"].ToString(), reader["category"].ToString(), Convert.ToDecimal(reader["price"]), reader["image"].ToString(), Convert.ToInt16(reader["qty"]));
                 products.Add(p);
             }
             reader.Close();

@@ -15,8 +15,9 @@ namespace ASPGroupProject.Models
         public int Qty { get; set; }
         public int Id { get; set; }
 
-        public Product(string name, string description, string category, decimal price, string imagePath, int qty)
+        public Product(int id, string name, string description, string category, decimal price, string imagePath, int qty)
         {
+            Id = id;
             Name = name;
             Description = description;
             Category = category;
