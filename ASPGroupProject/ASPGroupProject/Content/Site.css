@@ -23,13 +23,12 @@ textarea {
 }
 
 img {
-    height: 20%;
-    height: 20%;
+    max-height: 800px;
+    max-width: 800px;
 }
-
 .product-thumbnail {
-    max-height: 350px;
-    max-width: 350px;
+    object-fit: cover;
+    object-fit: cover;
 }
 
 
@@ -45,4 +44,10 @@ img {
     .jumbotron h2 {
         font-size: 72pt;
         /*TODO update to more attractive font*/
-    } 
+    }
+
+.product-buttons {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}

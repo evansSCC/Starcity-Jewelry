@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-6">
         <h3>About Us</h3>
-        <p>Not sure what we will put here yet. TBD.</p>
+        <p>Aenean molestie ligula libero, ut mattis nunc pellentesque vitae. Nulla sed lacinia ligula, in molestie arcu. Suspendisse consectetur libero non mi convallis consequat. Cras vitae mauris tellus. Aliquam condimentum ullamcorper vehicula. Aliquam risus risus, dictum vitae dui eu, dictum ullamcorper metus. Pellentesque varius bibendum urna laoreet hendrerit.</p>
     </div>
     <div class="col-md-6 ">
         <h3>News</h3>
@@ -19,14 +19,14 @@
             To find out more information about our company please visit the contact us page.
         </p>
     </div>
-    <div class="card-columns">
+    <h4 style="margin-top: 75px;">Latest Products</h4>
+    <div class="card-deck" >
         @foreach (var product in StuffList)
         {
-        <div class="card border-primary mb-5">
-            <img class="card-img-top thumbnail-small" src="..@(product.Image)_Main.jpg" />
-            <div class="card-header">@product.Name</div>
-        </div>
+            <div class="card border-primary mb-5" style="overflow:hidden; max-height: 250px;">
+                <img src="..@(product.Image)_Main.jpg" class="card-img" style="object-fit:cover;" />
+            </div>
         }
-        </div>
     </div>
+</div>
    
