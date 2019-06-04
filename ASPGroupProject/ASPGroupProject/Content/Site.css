@@ -51,3 +51,10 @@ img {
     margin-right: 10%;
     margin-top: 5%;
 }
+
+.catalog_link {
+    text-decoration: none;
+    color: inherit;
+    padding: inherit;
+    margin: inherit;
+}
