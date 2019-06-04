@@ -123,7 +123,7 @@ namespace ASPGroupProject.Controllers
             return View("Store");
         }
 
-        public ActionResult try_purchase(string name, string card_num, string cvc, DateTime expiration)
+        public ActionResult try_purchase(string name, string card_num, string cvc, DateTime expiration, List<Product> product_list, string city, string state, string address, string zip, string country)
         {
             bool valid = true;
 
