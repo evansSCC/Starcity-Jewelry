@@ -45,6 +45,21 @@ namespace ASPGroupProject.Controllers
         }
         public ActionResult Checkout()
         {
+            List<Product> products = new List<Product>();
+            double tax = 0.07;
+            double totalNoTax = 0;
+            if (Session["Cart"] != null)
+            {
+                products = (List<Product>)Session["Cart"];
+                foreach(Product p in products)
+                {
+                    totalNoTax += Convert.ToDouble(p.Price);
+                }
+            }
+            ViewBag.totalNoTax = totalNoTax;
+            ViewBag.Taxes = totalNoTax * tax;
+            ViewBag.Total = totalNoTax + ViewBag.Taxes;
+            ViewBag.Products = products;
             return View();
         }
         public ActionResult Contact_Us()
@@ -65,18 +80,30 @@ namespace ASPGroupProject.Controllers
         }
 
         [HttpPost]
-        public void add_to_cart(int id)
+        public ActionResult add_to_cart(int id)
         {
-            Product p = ProductDA.GetProductById(id);
-            if(Session["Cart"] == null)
+            List<Product> listOfProducts = ProductDA.GetAllProducts();
+            List<string> Categories = new List<string>();
+            foreach (Product p in listOfProducts)
+            {
+                if (!Categories.Contains(p.Category))
+                {
+                    Categories.Add(p.Category);
+                }
+            }
+            ViewBag.Categories = Categories;
+            ViewBag.Message = listOfProducts;
+            Product prod = ProductDA.GetProductById(id);
+            if (Session["Cart"] == null)
             {
                 Session["Cart"] = new List<Product>();
             }
 
             List<Product> cart = (List<Product>)Session["Cart"];
-            cart.Add(p);
+            cart.Add(prod);
             Session["Cart"] = cart;
-            Response.Redirect("Store");
+            Session["Count"] = cart.Count();
+            return View("Store");
         }
 
         public ActionResult sort_store(string category)
@@ -96,5 +123,47 @@ namespace ASPGroupProject.Controllers
             return View("Store");
         }
 
+        public ActionResult try_purchase(string name, string card_num, string cvc, DateTime expiration, List<Product> product_list, string city, string state, string address, string zip, string country)
+        {
+            bool valid = true;
+
+            if(name.Length <= 0)
+            {
+                valid = false;
+            }
+
+            if(card_num.Length != 16)
+            {
+                valid = false;
+
+            }
+
+            try
+            {
+                Convert.ToInt32(card_num);
+            }
+            catch (Exception e)
+            {
+                valid = false;
+                Console.WriteLine(e);
+            }
+
+            if (cvc.Length != 3)
+            {
+                valid = false;
+            }
+
+            try
+            {
+                Convert.ToInt16(cvc);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+
+
+            return View("Checkout");
+        }
     }
 }
