@@ -14,13 +14,13 @@ namespace ASPGroupProject.Controllers
             List<Product> listOfProducts = ProductDA.GetAllProducts();
             List<Product> shortList = new List<Product>();
 
-            for (int i = 0; i <=2; i++)
+            for (int i = 0; i <= 2; i++)
             {
                 shortList.Add(listOfProducts[i]);
             }
 
             ViewBag.Message = shortList;
-            
+
             return View();
         }
 
@@ -28,7 +28,7 @@ namespace ASPGroupProject.Controllers
         {
             List<Product> listOfProducts = ProductDA.GetAllProducts();
             List<string> Categories = new List<string>();
-            foreach(Product p in listOfProducts)
+            foreach (Product p in listOfProducts)
             {
                 if (!Categories.Contains(p.Category))
                 {
@@ -53,8 +53,13 @@ namespace ASPGroupProject.Controllers
         }
         public ActionResult User_Profile()
         {
-            User u = UserDA.GetUserById(4);
-            ViewBag.Message = u;
+            string currentUser = Session["user"].ToString();
+
+            //get user data by email address (currentUser)
+
+            User user = UserDA.GetUserByEmail(currentUser);
+
+            ViewBag.Message = user;
 
             return View();
         }
@@ -68,7 +73,7 @@ namespace ASPGroupProject.Controllers
         public void add_to_cart(int id)
         {
             Product p = ProductDA.GetProductById(id);
-            if(Session["Cart"] == null)
+            if (Session["Cart"] == null)
             {
                 Session["Cart"] = new List<Product>();
             }
