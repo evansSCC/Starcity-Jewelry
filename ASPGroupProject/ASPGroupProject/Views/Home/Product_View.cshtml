@@ -11,7 +11,7 @@
 <h2>Description</h2>
 <p>@Model.Description</p>
 
-<h3>Price - @Model.Price</h3>
+<h3>Price - @Model.Price.ToString("c")</h3>
 
 @using (Html.BeginForm("add_to_cart", "Home"))
 {
